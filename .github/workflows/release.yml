@@ -1,17 +1,23 @@
 name: Release
 
+# Tag-driven release: pushing a vX.Y.Z tag publishes @vieko/cli to npm via
+# OIDC trusted publishing (no token, no OTP, with provenance). One-time
+# setup: configure the trusted publisher for @vieko/cli on npmjs.com
+# (GitHub Actions, repo vieko/vieko-cli, workflow release.yml).
+
 on:
   push:
     tags:
       - "v*.*.*"
   workflow_dispatch:
 
+permissions:
+  contents: read
+  id-token: write # OIDC for npm trusted publishing
+
 jobs:
   publish:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      id-token: write
     steps:
       - uses: actions/checkout@v4
 
@@ -19,6 +25,9 @@ jobs:
         with:
           node-version: "20"
           registry-url: "https://registry.npmjs.org"
+
+      # Trusted publishing (OIDC) needs npm >= 11.5.1; the runner ships older.
+      - run: npm install -g npm@latest
 
       - name: Verify tag matches package.json version
         run: |
@@ -31,6 +40,5 @@ jobs:
 
       - run: npm test
 
-      - run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # OIDC trusted publishing: no NODE_AUTH_TOKEN, no OTP; provenance is automatic.
+      - run: npm publish --access public
