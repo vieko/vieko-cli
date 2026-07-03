@@ -11,11 +11,6 @@ export const X_DISPLAY = 'x.com/vieko'
 
 export const POSTS = [
   {
-    title: 'No Discovery Needed',
-    slug: '/on-demand',
-    date: 'June 28, 2026',
-  },
-  {
     title: 'Say No',
     slug: '/say-no',
     date: 'June 23, 2026',
