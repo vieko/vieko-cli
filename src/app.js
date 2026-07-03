@@ -10,7 +10,7 @@ import {
   EMAIL_URL,
   POSTS,
 } from './data.js'
-import { renderWord } from './font.js'
+import { LOGO_LINES } from './font.js'
 import { openUrl } from './open-url.js'
 
 const RESET = '\x1b[0m'
@@ -23,7 +23,7 @@ const GRAY = '\x1b[90m'
 
 const MIN_WIDTH = 60
 const MAX_WIDTH = 78
-const FIXED_CHROME_LINES = 14 // blank+logo(7)+blank+tagline+blank+header+blank+footer
+const FIXED_CHROME_LINES = 11 // blank+logo(4)+blank+tagline+blank+header+blank+footer
 const MIN_VISIBLE_ROWS = 3
 
 const state = {
@@ -80,7 +80,7 @@ function frame() {
 
   lines.push('')
 
-  for (const logoLine of renderWord('vieko')) {
+  for (const logoLine of LOGO_LINES) {
     lines.push('  ' + BOLD + WHITE + logoLine + RESET)
   }
 
