@@ -9,6 +9,8 @@ export const GITHUB_URL = 'https://github.com/vieko'
 export const GITHUB_DISPLAY = 'github.com/vieko'
 export const X_URL = 'https://x.com/vieko'
 export const X_DISPLAY = 'x.com/vieko'
+export const EMAIL = 'hello@vieko.dev'
+export const EMAIL_URL = 'mailto:hello@vieko.dev'
 
 export const POSTS = [
   {

@@ -6,6 +6,8 @@ import {
   GITHUB_DISPLAY,
   X_URL,
   X_DISPLAY,
+  EMAIL,
+  EMAIL_URL,
   POSTS,
 } from './data.js'
 import { renderWord } from './font.js'
@@ -119,8 +121,8 @@ function frame() {
 
   lines.push('')
 
-  const hints = `${BOLD}Enter${RESET}${DIM} open   ${RESET}${BOLD}g${RESET}${DIM} ${GITHUB_DISPLAY}   ${RESET}${BOLD}x${RESET}${DIM} ${X_DISPLAY}   ${RESET}${BOLD}q${RESET}${DIM} quit${RESET}`
-  const hintsPlain = `Enter open   g ${GITHUB_DISPLAY}   x ${X_DISPLAY}   q quit`
+  const hints = `${BOLD}Enter${RESET}${DIM} open   ${RESET}${BOLD}g${RESET}${DIM} ${GITHUB_DISPLAY}   ${RESET}${BOLD}x${RESET}${DIM} ${X_DISPLAY}   ${RESET}${BOLD}e${RESET}${DIM} ${EMAIL}   ${RESET}${BOLD}q${RESET}${DIM} quit${RESET}`
+  const hintsPlain = `Enter open   g ${GITHUB_DISPLAY}   x ${X_DISPLAY}   e ${EMAIL}   q quit`
   const gap = Math.max(0, w - hintsPlain.length)
   lines.push('  ' + REVERSE + hints + ' '.repeat(gap) + RESET)
 
@@ -170,6 +172,9 @@ function runInteractive() {
         break
       case 'x':
         openUrl(X_URL)
+        break
+      case 'e':
+        openUrl(EMAIL_URL)
         break
       case 'q':
       case 'escape':

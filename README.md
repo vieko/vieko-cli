@@ -19,6 +19,7 @@ Node + ANSI escape codes, no native binary, no build step.
 | `Enter`     | Open selected post |
 | `g`         | Open github.com/vieko |
 | `x`         | Open x.com/vieko |
+| `e`         | Email hello@vieko.dev |
 | `q` / `Esc` | Quit             |
 
 ## Updating content
