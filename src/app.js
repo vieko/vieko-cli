@@ -17,7 +17,6 @@ const RESET = '\x1b[0m'
 const BOLD = '\x1b[1m'
 const DIM = '\x1b[2m'
 const NORMAL = '\x1b[22m' // cancel bold/dim, keep reverse + color
-const FG_RESET = '\x1b[39m' // cancel explicit fg color, keep reverse + intensity
 const REVERSE = '\x1b[7m'
 const WHITE = '\x1b[97m'
 const GRAY = '\x1b[90m'
@@ -123,7 +122,7 @@ function frame() {
 
   lines.push('')
 
-  const dim = (text) => `${GRAY}${DIM}${text}${FG_RESET}${NORMAL}`
+  const dim = (text) => `${DIM}${text}${NORMAL}`
   const hints =
     `${BOLD}Enter${NORMAL} ${dim('open')}   ` +
     `${BOLD}g${NORMAL} ${dim(GITHUB_DISPLAY)}   ` +
