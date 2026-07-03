@@ -18,6 +18,7 @@ const BOLD = '\x1b[1m'
 const DIM = '\x1b[2m'
 const REVERSE = '\x1b[7m'
 const WHITE = '\x1b[97m'
+const NAV_SYMBOLS = '\u2191\u2193\u23ce' // up, down, return
 const GRAY = '\x1b[90m'
 
 const MIN_WIDTH = 60
@@ -121,19 +122,28 @@ function frame() {
 
   lines.push('')
 
-  const items = [
-    ['Enter', 'open'],
-    ['g', GITHUB_DISPLAY],
-    ['x', X_DISPLAY],
-    ['e', EMAIL],
-    ['q', 'quit'],
+  const label = (text) => `${DIM}${GRAY}${text}${RESET}`
+  const mnemonic = (text, index) => {
+    const before = text.slice(0, index)
+    const char = text[index]
+    const after = text.slice(index + 1)
+    return `${before ? label(before) : ''}${BOLD}${WHITE}${char}${RESET}${after ? label(after) : ''}`
+  }
+
+  const segments = [
+    [`${BOLD}${WHITE}${NAV_SYMBOLS}${RESET} ${label('open')}`, `${NAV_SYMBOLS} open`],
+    [mnemonic(GITHUB_DISPLAY, 0), GITHUB_DISPLAY],
+    [mnemonic(X_DISPLAY, 0), X_DISPLAY],
+    [mnemonic(EMAIL, 1), EMAIL],
+    [mnemonic('quit', 0), 'quit'],
   ]
+
   let hints = ''
   let hintsPlain = ''
-  items.forEach(([key, label], index) => {
-    hints += `${BOLD}${WHITE}${key}${RESET} ${DIM}${GRAY}${label}${RESET}`
-    hintsPlain += `${key} ${label}`
-    if (index < items.length - 1) {
+  segments.forEach(([styled, plain], index) => {
+    hints += styled
+    hintsPlain += plain
+    if (index < segments.length - 1) {
       hints += '   '
       hintsPlain += '   '
     }
