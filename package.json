@@ -1,5 +1,5 @@
 {
-  "name": "vieko",
+  "name": "@vieko/cli",
   "version": "0.1.0",
   "description": "A terminal one-pager for vieko.dev.",
   "type": "module",
