@@ -121,9 +121,8 @@ function frame() {
 
   const hints = `${BOLD}Enter${RESET}${DIM} open   ${RESET}${BOLD}g${RESET}${DIM} github   ${RESET}${BOLD}x${RESET}${DIM} x.com   ${RESET}${BOLD}q${RESET}${DIM} quit${RESET}`
   const hintsPlain = 'Enter open   g github   x x.com   q quit'
-  const status = 'Select a post and press Enter to open it.'
-  const gap = Math.max(1, w - hintsPlain.length - status.length)
-  lines.push('  ' + REVERSE + hints + ' '.repeat(gap) + status + RESET)
+  const gap = Math.max(0, w - hintsPlain.length)
+  lines.push('  ' + REVERSE + hints + ' '.repeat(gap) + RESET)
 
   return lines.join('\r\n')
 }
