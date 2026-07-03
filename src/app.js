@@ -18,7 +18,7 @@ const BOLD = '\x1b[1m'
 const DIM = '\x1b[2m'
 const REVERSE = '\x1b[7m'
 const WHITE = '\x1b[97m'
-const NAV_SYMBOLS = '\u2191\u2193\u23ce' // up, down, return
+const NAV_SYMBOLS = '\u2191\u2193\u21b5' // up, down, return
 const GRAY = '\x1b[90m'
 
 const MIN_WIDTH = 60
