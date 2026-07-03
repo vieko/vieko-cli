@@ -1,6 +1,6 @@
 {
   "name": "@vieko/cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A terminal one-pager for vieko.dev.",
   "type": "module",
   "bin": {
