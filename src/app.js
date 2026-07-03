@@ -87,7 +87,7 @@ function frame() {
     '  ' +
       DIM +
       GRAY +
-      splitRow(TAGLINE, `${GITHUB_DISPLAY}  ${X_DISPLAY}`, w) +
+      truncate(TAGLINE, w) +
       RESET,
   )
 
@@ -119,8 +119,8 @@ function frame() {
 
   lines.push('')
 
-  const hints = `${BOLD}Enter${RESET}${DIM} open   ${RESET}${BOLD}g${RESET}${DIM} github   ${RESET}${BOLD}x${RESET}${DIM} x.com   ${RESET}${BOLD}q${RESET}${DIM} quit${RESET}`
-  const hintsPlain = 'Enter open   g github   x x.com   q quit'
+  const hints = `${BOLD}Enter${RESET}${DIM} open   ${RESET}${BOLD}g${RESET}${DIM} ${GITHUB_DISPLAY}   ${RESET}${BOLD}x${RESET}${DIM} ${X_DISPLAY}   ${RESET}${BOLD}q${RESET}${DIM} quit${RESET}`
+  const hintsPlain = `Enter open   g ${GITHUB_DISPLAY}   x ${X_DISPLAY}   q quit`
   const gap = Math.max(0, w - hintsPlain.length)
   lines.push('  ' + REVERSE + hints + ' '.repeat(gap) + RESET)
 
