@@ -1,16 +1,16 @@
 // "vieko" wordmark variants. Swap the active one via LOGO_LINES below —
-// keeping all three around makes it cheap to change our minds later.
+// keeping them all around makes it cheap to change our minds later.
 
-// Option A: hand-crafted half-block (▀▄█) wordmark, compact (4 rows).
-export const LOGO_HALF_BLOCK = [
+// LOGO_CODER: hand-crafted half-block (▀▄█) wordmark, compact (4 rows).
+export const LOGO_CODER = [
   '      \u2580\u2580        \u2584\u2584           ',
   '\u2588\u2588 \u2588\u2588 \u2588\u2588  \u2584\u2588\u2580\u2588\u2584 \u2588\u2588 \u2584\u2588\u2580 \u2584\u2588\u2588\u2588\u2584 ',
   '\u2588\u2588\u2584\u2588\u2588 \u2588\u2588  \u2588\u2588\u2584\u2588\u2580 \u2588\u2588\u2588\u2588   \u2588\u2588 \u2588\u2588 ',
   ' \u2580\u2588\u2580  \u2588\u2588\u2584 \u2580\u2588\u2584\u2584\u2584 \u2588\u2588 \u2580\u2588\u2584 \u2580\u2588\u2588\u2588\u2580',
 ]
 
-// Option B: "ANSI Shadow" figlet-style block-and-line wordmark (6 rows).
-export const LOGO_ANSI_SHADOW = [
+// LOGO_SHADOW: "ANSI Shadow" figlet-style block-and-line wordmark (6 rows).
+export const LOGO_SHADOW = [
   '██╗   ██╗██╗███████╗██╗  ██╗ ██████╗ ',
   '██║   ██║██║██╔════╝██║ ██╔╝██╔═══██╗',
   '██║   ██║██║█████╗  █████╔╝ ██║   ██║',
@@ -19,8 +19,17 @@ export const LOGO_ANSI_SHADOW = [
   '  ╚═══╝  ╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝ ',
 ]
 
-// Option C: 5x7 dot-matrix font, doubled-width block pixels, generic per
-// letter (only v/i/e/k/o glyphs defined). Kept for reference / reuse.
+// LOGO_CLASSY: hand-crafted half-block wordmark with connected,
+// slanted strokes (4 rows).
+export const LOGO_CLASSY = [
+  '       ▀▀       ▄▄          ',
+  '▀█▄ ██▀██ ▄█▀█▄ ██ ▄█▀ ▄███▄',
+  ' ██▄██ ██ ██▄█▀ ████   ██ ██',
+  '  ▀█▀ ▄██▄▀█▄▄▄▄██ ▀█▄▄▀███▀',
+]
+
+// LOGO_SIMPLE: 5x7 dot-matrix font, doubled-width block pixels, generic
+// per letter (only v/i/e/k/o glyphs defined). Kept for reference / reuse.
 const GLYPHS = {
   v: [
     [1, 0, 0, 0, 1],
@@ -95,7 +104,7 @@ export function renderWord(word) {
   return lines
 }
 
-export const LOGO_DOT_MATRIX = renderWord('vieko')
+export const LOGO_SIMPLE = renderWord('vieko')
 
 // --- active logo — swap this to try the others ---
-export const LOGO_LINES = LOGO_ANSI_SHADOW
+export const LOGO_LINES = LOGO_SHADOW
