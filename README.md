@@ -29,6 +29,17 @@ The writing list in `src/data.js` is hand-mirrored from
 There's no fetch/build coupling between the two repos — update it by hand
 when new writing ships.
 
+## Releasing
+
+CI publishes to npm on tag push — no local `npm publish`:
+
+1. Bump `version` in `package.json`.
+2. Commit: `git commit -am "chore(release): vX.Y.Z"`.
+3. Tag: `git tag vX.Y.Z && git push origin main --tags`.
+4. `.github/workflows/release.yml` verifies the tag matches
+   `package.json`, runs `npm test`, then publishes with provenance using
+   the `NPM_TOKEN` repo secret.
+
 ## License
 
 MIT

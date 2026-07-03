@@ -6,6 +6,12 @@
   "bin": {
     "vieko": "./bin/vieko.js"
   },
+  "scripts": {
+    "test": "for f in bin/*.js src/*.js; do node --check \"$f\" || exit 1; done"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "bin/",
     "src/",

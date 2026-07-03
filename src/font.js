@@ -1,5 +1,6 @@
 // "vieko" wordmark variants. Swap the active one via LOGO_LINES below —
 // keeping them all around makes it cheap to change our minds later.
+// Live: LOGO_CLASSY.
 
 // LOGO_CODER: hand-crafted half-block (▀▄█) wordmark, compact (4 rows).
 export const LOGO_CODER = [
@@ -107,4 +108,4 @@ export function renderWord(word) {
 export const LOGO_SIMPLE = renderWord('vieko')
 
 // --- active logo — swap this to try the others ---
-export const LOGO_LINES = LOGO_SHADOW
+export const LOGO_LINES = LOGO_CLASSY
