@@ -16,6 +16,8 @@ import { openUrl } from './open-url.js'
 const RESET = '\x1b[0m'
 const BOLD = '\x1b[1m'
 const DIM = '\x1b[2m'
+const NORMAL = '\x1b[22m' // cancel bold/dim, keep reverse + color
+const FG_RESET = '\x1b[39m' // cancel explicit fg color, keep reverse + intensity
 const REVERSE = '\x1b[7m'
 const WHITE = '\x1b[97m'
 const GRAY = '\x1b[90m'
@@ -121,7 +123,13 @@ function frame() {
 
   lines.push('')
 
-  const hints = `${BOLD}Enter${RESET}${DIM} open   ${RESET}${BOLD}g${RESET}${DIM} ${GITHUB_DISPLAY}   ${RESET}${BOLD}x${RESET}${DIM} ${X_DISPLAY}   ${RESET}${BOLD}e${RESET}${DIM} ${EMAIL}   ${RESET}${BOLD}q${RESET}${DIM} quit${RESET}`
+  const dim = (text) => `${GRAY}${DIM}${text}${FG_RESET}${NORMAL}`
+  const hints =
+    `${BOLD}Enter${NORMAL} ${dim('open')}   ` +
+    `${BOLD}g${NORMAL} ${dim(GITHUB_DISPLAY)}   ` +
+    `${BOLD}x${NORMAL} ${dim(X_DISPLAY)}   ` +
+    `${BOLD}e${NORMAL} ${dim(EMAIL)}   ` +
+    `${BOLD}q${NORMAL} ${dim('quit')}`
   const hintsPlain = `Enter open   g ${GITHUB_DISPLAY}   x ${X_DISPLAY}   e ${EMAIL}   q quit`
   const gap = Math.max(0, w - hintsPlain.length)
   lines.push('  ' + REVERSE + hints + ' '.repeat(gap) + RESET)
