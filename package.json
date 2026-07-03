@@ -1,0 +1,30 @@
+{
+  "name": "vieko",
+  "version": "0.1.0",
+  "description": "A terminal one-pager for vieko.dev.",
+  "type": "module",
+  "bin": {
+    "vieko": "./bin/vieko.js"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "README.md"
+  ],
+  "keywords": [
+    "vieko",
+    "tui",
+    "terminal",
+    "cli"
+  ],
+  "homepage": "https://vieko.dev",
+  "author": "Vieko Franetovic <hello@vieko.dev>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vieko/vieko.git"
+  }
+}
