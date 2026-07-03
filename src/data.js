@@ -3,8 +3,7 @@
 // dependency on the site.
 
 export const SITE_URL = 'https://vieko.dev'
-export const TAGLINE =
-  'Developer and game maker building with AI at Vercel \u265c Previously at Devolver'
+export const TAGLINE = 'Developer and game maker summoning demons at \u25b2 Vercel'
 export const GITHUB_URL = 'https://github.com/vieko'
 export const GITHUB_DISPLAY = 'github.com/vieko'
 export const X_URL = 'https://x.com/vieko'
