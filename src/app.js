@@ -18,7 +18,7 @@ const BOLD = '\x1b[1m'
 const DIM = '\x1b[2m'
 const REVERSE = '\x1b[7m'
 const WHITE = '\x1b[97m'
-const NAV_SYMBOLS = '\u2191\u2193\u21b5' // up, down, return
+const NAV_SYMBOLS = '\u2191\u2193' // up, down
 const GRAY = '\x1b[90m'
 
 const MIN_WIDTH = 60
@@ -131,7 +131,10 @@ function frame() {
   }
 
   const segments = [
-    [`${BOLD}${WHITE}${NAV_SYMBOLS}${RESET} ${label('open')}`, `${NAV_SYMBOLS} open`],
+    [
+      `${BOLD}${WHITE}${NAV_SYMBOLS}${RESET} ${BOLD}${WHITE}Enter${RESET} ${label('open')}`,
+      `${NAV_SYMBOLS} Enter open`,
+    ],
     [mnemonic(GITHUB_DISPLAY, 0), GITHUB_DISPLAY],
     [mnemonic(X_DISPLAY, 0), X_DISPLAY],
     [mnemonic(EMAIL, 1), EMAIL],
