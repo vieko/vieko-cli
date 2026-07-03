@@ -3,10 +3,7 @@ import {
   SITE_URL,
   TAGLINE,
   GITHUB_URL,
-  GITHUB_DISPLAY,
   X_URL,
-  X_DISPLAY,
-  EMAIL,
   EMAIL_URL,
   POSTS,
 } from './data.js'
@@ -136,9 +133,9 @@ function frame() {
       `${BOLD}${WHITE}${NAV_SYMBOLS}${RESET} ${BOLD}${WHITE}Enter${RESET} ${label('open')}`,
       `${NAV_SYMBOLS} Enter open`,
     ],
-    [mnemonic(GITHUB_DISPLAY, 0), GITHUB_DISPLAY],
-    [mnemonic(X_DISPLAY, 0), X_DISPLAY],
-    [mnemonic(EMAIL, 1), EMAIL],
+    [mnemonic('Open my github profile', 8), 'Open my github profile'],
+    [mnemonic('Open my X profile', 8), 'Open my X profile'],
+    [mnemonic('Send me an email', 11), 'Send me an email'],
     [mnemonic('quit', 0), 'quit'],
   ]
 
