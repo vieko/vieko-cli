@@ -4,7 +4,7 @@
 
 export const SITE_URL = 'https://vieko.dev'
 export const TAGLINE =
-  '\u265c developer and game maker building with AI at \u25b2 Vercel'
+  'Developer and game maker building with AI at Vercel \u265c Previously at Devolver'
 export const GITHUB_URL = 'https://github.com/vieko'
 export const GITHUB_DISPLAY = 'github.com/vieko'
 export const X_URL = 'https://x.com/vieko'

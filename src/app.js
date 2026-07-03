@@ -16,7 +16,6 @@ import { openUrl } from './open-url.js'
 const RESET = '\x1b[0m'
 const BOLD = '\x1b[1m'
 const DIM = '\x1b[2m'
-const NORMAL = '\x1b[22m' // cancel bold/dim, keep reverse + color
 const REVERSE = '\x1b[7m'
 const WHITE = '\x1b[97m'
 const GRAY = '\x1b[90m'
@@ -122,16 +121,25 @@ function frame() {
 
   lines.push('')
 
-  const dim = (text) => `${DIM}${text}${NORMAL}`
-  const hints =
-    `${BOLD}Enter${NORMAL} ${dim('open')}   ` +
-    `${BOLD}g${NORMAL} ${dim(GITHUB_DISPLAY)}   ` +
-    `${BOLD}x${NORMAL} ${dim(X_DISPLAY)}   ` +
-    `${BOLD}e${NORMAL} ${dim(EMAIL)}   ` +
-    `${BOLD}q${NORMAL} ${dim('quit')}`
-  const hintsPlain = `Enter open   g ${GITHUB_DISPLAY}   x ${X_DISPLAY}   e ${EMAIL}   q quit`
+  const items = [
+    ['Enter', 'open'],
+    ['g', GITHUB_DISPLAY],
+    ['x', X_DISPLAY],
+    ['e', EMAIL],
+    ['q', 'quit'],
+  ]
+  let hints = ''
+  let hintsPlain = ''
+  items.forEach(([key, label], index) => {
+    hints += `${REVERSE}${BOLD} ${key} ${RESET}${DIM}${GRAY}${label}${RESET}`
+    hintsPlain += ` ${key} ${label}`
+    if (index < items.length - 1) {
+      hints += '   '
+      hintsPlain += '   '
+    }
+  })
   const gap = Math.max(0, w - hintsPlain.length)
-  lines.push('  ' + REVERSE + hints + ' '.repeat(gap) + RESET)
+  lines.push('  ' + hints + ' '.repeat(gap))
 
   return lines.join('\r\n')
 }
