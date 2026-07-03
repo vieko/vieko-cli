@@ -16,9 +16,9 @@ Browse recent writing without leaving the terminal. Zero dependencies.
 | `↑`/`k`     | Move up          |
 | `↓`/`j`     | Move down        |
 | `Enter`     | Open selected post |
-| `g`         | Open github.com/vieko |
-| `x`         | Open x.com/vieko |
-| `e`         | Email hello@vieko.dev |
+| `g`         | Open my github profile |
+| `x`         | Open my X profile |
+| `e`         | Send me an email |
 | `q` / `Esc` | Quit             |
 
 ## Updating content
