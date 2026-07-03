@@ -23,7 +23,8 @@ const GRAY = '\x1b[90m'
 
 const MIN_WIDTH = 60
 const MAX_WIDTH = 78
-const FIXED_CHROME_LINES = 11 // blank+logo(4)+blank+tagline+blank+header+blank+footer
+// blank + logo + blank + tagline + blank + header + blank + footer
+const FIXED_CHROME_LINES = 7 + LOGO_LINES.length
 const MIN_VISIBLE_ROWS = 3
 
 const state = {
