@@ -131,8 +131,8 @@ function frame() {
   let hints = ''
   let hintsPlain = ''
   items.forEach(([key, label], index) => {
-    hints += `${REVERSE}${BOLD} ${key} ${RESET}${DIM}${GRAY}${label}${RESET}`
-    hintsPlain += ` ${key} ${label}`
+    hints += `${BOLD}${WHITE}${key}${RESET} ${DIM}${GRAY}${label}${RESET}`
+    hintsPlain += `${key} ${label}`
     if (index < items.length - 1) {
       hints += '   '
       hintsPlain += '   '
